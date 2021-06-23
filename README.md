@@ -12,7 +12,7 @@ A entrada da aplicação será composta por um conjunto de dados de clipes de 15
 
 A principal técnica de processamento de imagens utilizada será a morfologia.
 
-Para atinger o objetivo iremos seguir os seguintes passos:
+Para atingir o objetivo iremos seguir os seguintes passos:
 
   1 - Remover fundo da imagem e possíveis ruídos
   
