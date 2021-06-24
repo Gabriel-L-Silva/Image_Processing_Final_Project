@@ -5,12 +5,11 @@
 # Processamento de imagens
 # Final project
 
+import cProfile
+import pstats
 import numpy as np
 import cv2
-import imageio
-from numpy.lib.function_base import copy
 from skimage import morphology
-import matplotlib.pyplot as plt
 import os
 import copy
 from tqdm import tqdm
@@ -24,9 +23,9 @@ def haar_cascade(image):
     # multiple cascades: https://github.com/Itseez/opencv/tree/master/data/haarcascades
 
     #https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml
-    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+    face_cascade = cv2.CascadeClassifier('haar_configs/haarcascade_frontalface_default.xml')
     #https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_eye.xml
-    eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
+    eye_cascade = cv2.CascadeClassifier('haar_configs/haarcascade_eye.xml')
 
     gray = img
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
@@ -67,16 +66,17 @@ def skin_detection(img):
     global_result=cv2.bitwise_not(global_mask)
 
 
+    masked_img = cv2.bitwise_and(img,np.dstack([global_result]*3))
     #show results
-    cv2.imshow("1_HSV.jpg",HSV_result)
-    cv2.imshow("2_YCbCr.jpg",YCrCb_result)
-    cv2.imshow("3_global_result.jpg",global_result)
-    cv2.imshow("Image.jpg",img)
-    cv2.imwrite("1_HSV.jpg",HSV_result)
-    cv2.imwrite("2_YCbCr.jpg",YCrCb_result)
-    cv2.imwrite("3_global_result.jpg",global_result)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    # cv2.imshow("1_HSV.jpg",HSV_result)
+    # cv2.imshow("2_YCbCr.jpg",YCrCb_result)
+    # cv2.imshow("3_global_result.jpg",global_result)
+    # cv2.imshow("Image.jpg",img)
+    # cv2.imshow("Skinless image.jpg", masked_img)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
+
+    return masked_img
 
 def remove_bg(videopath):
     backSub = cv2.createBackgroundSubtractorKNN()
@@ -158,81 +158,135 @@ def bg_medium(frames):
     #             cv2.FONT_HERSHEY_SIMPLEX, 0.5 , (0,0,0))
     #     cv2.waitKey(0)
     return np.asarray(nobg_frames)
-        
+
+def distance(a,b):
+    return np.sqrt((a[0]-b[0])**2 + (a[1]-b[1])**2)
+
 def morph_disk(img):
-    img_erosion_disk3 = morphology.erosion(img, morphology.square(9)).astype(np.uint8)   
+    img_erosion_disk3 = morphology.erosion(img, morphology.square(9)).astype(np.uint8) 
     img_delation_disk3 = morphology.dilation(img, morphology.square(9)).astype(np.uint8)    
     img_grad = img_delation_disk3 - img_erosion_disk3
     # plt.subplot(141); plt.imshow(img, cmap='gray')
     # plt.subplot(142); plt.imshow(img_erosion_disk3, cmap='gray')
     # plt.subplot(143); plt.imshow(img_delation_disk3, cmap='gray')
-    # plt.subplot(144); plt.imshow(img_grad, cmap='gray')
+    # plt.imshow(img_grad, cmap='gray')
     # plt.show()
 
-    for i in range(0,100,5):
-        ret, th_adpt = cv2.threshold(img,220-i,255,cv2.THRESH_BINARY)
+    # for i in range(0,100,5):
+    ret, th_adpt = cv2.threshold(img_grad,220,255,cv2.THRESH_BINARY)
+    th_adpt_closed = morphology.closing(th_adpt, morphology.disk(25))
+    th_adpt_closed = morphology.dilation(th_adpt_closed, morphology.rectangle(10,30))
+    th_adpt_closed = morphology.closing(th_adpt_closed, morphology.square(10))
+    # cv2.imshow('threshold grad',th_adpt_closed)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
 
-        cv2.imshow('threshold grad',th_adpt)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+    # Setup SimpleBlobDetector parameters.
+    params = cv2.SimpleBlobDetector_Params()
 
-    circles = cv2.HoughCircles(img_erosion_disk3,cv2.HOUGH_GRADIENT,1,20,
-                            param1=50,param2=30,minRadius=0,maxRadius=0)
-    circles = np.uint16(np.around(circles))
-    for i in circles[0,:]:
-        # draw the outer circle
-        cv2.circle(img_erosion_disk3,(i[0],i[1]),i[2],(0,255,0),2)
-        # draw the center of the circle
-        cv2.circle(img_erosion_disk3,(i[0],i[1]),2,(0,0,255),3)
-    cv2.imshow('detected circles',img_erosion_disk3)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-    return img_erosion_disk3
+    # Change thresholds
+    params.minThreshold = 10
+    params.maxThreshold = 255
+
+    params.filterByInertia = False
+    params.filterByConvexity = False
+    params.filterByColor = False
+    params.filterByCircularity = False
+    # Set up the detector with default parameters.
+    detector = cv2.SimpleBlobDetector_create(params)
+
+    # Detect blobs.
+    keypoints = detector.detect(th_adpt_closed)
+
+    blobs = []
+    min_dist = np.inf
+    for A in keypoints:
+        for B in keypoints:
+            if A != B:
+                if A.pt[1] > B.pt[1] and B.pt[1] < A.pt[1]:
+                    continue
+                dist = distance(A.pt,B.pt)
+                if dist < min_dist:
+                    min_dist = dist
+                    blobs = [A,B]
+                
+
+
+    # Draw detected blobs as red circles.
+    # cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS ensures the size of the circle corresponds to the size of blob
+    im_with_keypoints = cv2.drawKeypoints(th_adpt_closed, blobs, np.array([]), (0,0,255), cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
+    # Show keypoints
+    # cv2.imshow("Keypoints", im_with_keypoints)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
+    return blobs
 
 def main():
     for filename in os.listdir(PATH):
-        if filename.endswith('.npy') or filename.startswith('output'):
+        if filename.endswith('.npy') or filename.endswith('.avi'):
             continue
-        
         # Opens the Video file
-        # cap= cv2.VideoCapture(PATH+filename)
-        # frames = []
-        # while(cap.isOpened()):
-        #     ret, frame = cap.read()
-        #     if ret == False:
-        #         break
-        #     frames.append(frame)
-        # cap.release()
-        # cv2.destroyAllWindows()
+        cap= cv2.VideoCapture(PATH+filename)
+        frames = []
+        while(cap.isOpened()):
+            ret, frame = cap.read()
+            if ret == False:
+                break
+            frames.append(frame)
+        cap.release()
+        cv2.destroyAllWindows()
 
-        # frames = np.asarray(frames)
+        frames = np.asarray(frames)
+        if filename[:-4]+".npy" in os.listdir(PATH):
+            nobg_frames = np.load(PATH+filename[:-4]+'.npy',allow_pickle=True)
+        else:            
+            nobg_frames = bg_medium(frames)
+            # remove_bg(PATH+filename)
+            # for frame in frames:
+            #     skin_detection(frame)
+
+            #     haar = haar_cascade(frame)
+            #     morph_img = morph_disk(frame)
+                
+                # plt.subplot(131)
+                # plt.imshow(haar, cmap='gray')
+                # plt.subplot(132)
+                # plt.imshow(morph_img, cmap='gray')
+                # plt.subplot(133)
+                # plt.imshow(frame-morph_img, cmap='gray')
+                # plt.show()
+            np.save(PATH+filename[:-4], nobg_frames, allow_pickle=True)
+        if "nobg_"+filename[:-4]+".avi" not in os.listdir(PATH):
+            out = cv2.VideoWriter(PATH+"nobg_"+filename[:-4]+".avi",cv2.VideoWriter_fourcc(*'DIVX'), 30, (1280,720))
+            for frame in nobg_frames:
+                # writing to a image array
+                out.write(frame)
+            out.release()
         
-        # nobg_frames = bg_medium(frames)
-        # remove_bg(PATH+filename)
-        # for frame in frames:
-        #     skin_detection(img)
-
-        #     haar = haar_cascade(img)
-        #     morph_img = morph_disk(img)
-            
-            # plt.subplot(131)
-            # plt.imshow(haar, cmap='gray')
-            # plt.subplot(132)
-            # plt.imshow(morph_img, cmap='gray')
-            # plt.subplot(133)
-            # plt.imshow(img-morph_img, cmap='gray')
-            # plt.show()
-        # np.save(PATH+filename, nobg_frames, allow_pickle=True)
-        nobg_frames = np.load(PATH+filename+'.npy',allow_pickle=True)
-        out = cv2.VideoWriter('filename.avi', 
-                         cv2.VideoWriter_fourcc(*'MJPG'),
-                         30, (720,1080))
-        nobg_frames = nobg_frames.reshape(nobg_frames.shape[0],1280,720,3)
-        for frame in tqdm(nobg_frames):
-            out.write(frame) # frame is a numpy.ndarray with shape (1280, 720, 3)
+        for i, frame in enumerate(tqdm(nobg_frames)):
+            if i == 2:
+                break
+            masked_frame = skin_detection(frame)
+            eye_pos = morph_disk(cv2.cvtColor(masked_frame, cv2.COLOR_RGB2GRAY))
+            for eye in eye_pos:
+                tl = (int(eye.pt[0]-eye.size//2),int(eye.pt[1]+eye.size//2))
+                rb = (int(eye.pt[0]+eye.size//2),int(eye.pt[1]-eye.size//2))
+                cv2.rectangle(frames[i], tl, rb, (255,0,0))
+            # cv2.imshow('Eye tracker',frames[i])
+            # cv2.waitKey(0)
+            # cv2.destroyAllWindows()
+        
+    
+        out = cv2.VideoWriter(PATH+"eyes_"+filename[:-4]+".avi",cv2.VideoWriter_fourcc(*'DIVX'), 30, (1280,720))
+        for frame in frames:
+            # writing to a image array
+            out.write(frame)
         out.release()
-        
     return
     
 if __name__ == '__main__':
-    main()
+    profile = cProfile.Profile()
+    profile.runcall(main)
+    ps = pstats.Stats(profile)
+    ps.print_stats()
