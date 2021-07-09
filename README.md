@@ -10,15 +10,25 @@ A entrada da aplicação será composta por um conjunto de dados de clipes de 15
 ![image](https://user-images.githubusercontent.com/29693842/120404422-53f10a00-c314-11eb-852e-04eab7238944.png)
 ![image](https://user-images.githubusercontent.com/29693842/120404436-5ce1db80-c314-11eb-9e6b-205332b798f9.png)
 
-A principal técnica de processamento de imagens utilizada será a morfologia.
+A principal técnica de processamento de imagens utilizada será a morfologia. Nós utilizamos as técnicas do trabalho de onde tais ténicas são aplicadas para imagens.[https://www.researchgate.net/publication/237415739_Eye_Detection_Using_Morphological_and_Color_Image_Processing] "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009). Eye Detection Using Morphological and Color Image Processing". 
 
 Para atingir o objetivo iremos seguir os seguintes passos:
 
   1 - Remover fundo da imagem e possíveis ruídos
+      
+      Para a remoção do fundo 
   
   2 - Detectar a face da pessoa
   
   3 - Detectar a posição do olho da pessoa
+      
+      A técnica aqui foi baseada no trabalho de "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009)", eles consideram que sempre que o olho estiver própriamente iluminado haverá um ponto de reflexão nos olhos, e é justamente esse ponto de reflexão que dever ser explorado para a detectção dos olhos.
+    
+  
+### Discussão
+
+### Resultados
+
   
 
 
