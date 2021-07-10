@@ -4,7 +4,7 @@ Autores: Gabriel Lucas da Silva e Diogo Henrique Godoi
 ## Abstract
 O objetivo deste projeto é desenvolver uma forma de detectar a região dos olhos. 
 
-A entrada da aplicação será composta por um conjunto de dados de clipes de 15s de vídeos no youtube adquiridos na base de dados https://chalearnlap.cvc.uab.cat/dataset/20/description/ . Segue alguns exemplos:
+A entrada da aplicação será composta por um conjunto de dados de clipes de 15s de vídeos no youtube adquiridos na base de dados [chalearnlap](https://chalearnlap.cvc.uab.cat/dataset/20/description/) . Segue alguns exemplos:
 
 
 ![image](https://user-images.githubusercontent.com/29693842/120404422-53f10a00-c314-11eb-852e-04eab7238944.png)
@@ -23,7 +23,8 @@ Para atingir o objetivo iremos seguir os seguintes passos:
   
   3. Detectar a posição do olho da pessoa
       
-      A técnica aqui foi baseada no trabalho de "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009)", eles consideram que sempre que o olho estiver própriamente iluminado haverá um ponto de reflexão nos olhos, e é justamente esse ponto de reflexão que dever ser explorado para a detectção dos olhos.
+      A técnica aqui foi baseada no trabalho de "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009)", eles consideram que sempre que o olho estiver própriamente iluminado haverá um ponto de reflexão nos olhos, e é justamente esse ponto de reflexão que dever ser explorado para a detecção dos olhos.
+      
     
   
 
