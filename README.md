@@ -32,7 +32,10 @@ Para atingir o objetivo iremos seguir os seguintes passos:
 ### Conclusão
   Videos utilizando a técnica de morphologia:
   
-  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgSucesso1.png)](https://drive.google.com/file/d/1FYnXcqsiNtxLn2VF7rBq8q-aVv-39xc5/view?usp=sharing)*Sucesso* [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)*Falha*
+  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgSucesso1.png)](https://drive.google.com/file/d/1FYnXcqsiNtxLn2VF7rBq8q-aVv-39xc5/view?usp=sharing)
+  *Sucesso* 
+  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)
+  *Falha*
   
 
 
