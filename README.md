@@ -36,14 +36,12 @@ Para atingir o objetivo iremos seguir os seguintes passos:
   *Sucesso* 
   [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)
   *Falha*
-  
-
 
   
   Video Haar Cascade:
   
   [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgHaar1.png)](https://drive.google.com/file/d/1oxl4FKvf88SptaDo6YeJPe3Nq1iDkePI/view?usp=sharing)  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgHaar2.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)
   
-
+O video de sucesso utilizando a técnica de morfologia, apresentou menos inconsistencias na hora da identificação dos olhos, gerando menos quadrados fora do local. Enquanto a técnica de Haar além da identificação dos olhos, acaba identificando o nariz e a boca. 
 
 
