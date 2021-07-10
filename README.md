@@ -30,10 +30,10 @@ Para atingir o objetivo iremos seguir os seguintes passos:
 ### Discussão
   Nossa técnica tem dificuldade quando o sujeito para analise está usando óculos, ou quando a qualidade da imagem não é boa, por exemplo vídeo borrado que colocamos nos resultados. Em casos de sucesso, nossa técnica não é perfeita, porém tem resultado relativamente consistente quando as condições necessárias são atendidas, como boa iluminação, e boa qualidade da imagem.
 ### Conclusão
-  Video de sucesso: 
-  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgSucesso1.png)](https://drive.google.com/file/d/1FYnXcqsiNtxLn2VF7rBq8q-aVv-39xc5/view?usp=sharing) 
-  Video de falha: 
-  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)
+  Videos utilizando a técnica de morphologia:
+  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgSucesso1.png)](https://drive.google.com/file/d/1FYnXcqsiNtxLn2VF7rBq8q-aVv-39xc5/view?usp=sharing)*Sucesso* [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)*Falha*
+  
+
 
   
   Video Haar Cascade:
