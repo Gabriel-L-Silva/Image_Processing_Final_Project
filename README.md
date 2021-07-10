@@ -31,9 +31,11 @@ Para atingir o objetivo iremos seguir os seguintes passos:
   Nossa técnica tem dificuldade quando o sujeito para analise está usando óculos, ou quando a qualidade da imagem não é boa, por exemplo vídeo borrado que colocamos nos resultados. Em casos de sucesso, nossa técnica não é perfeita, porém tem resultado relativamente consistente quando as condições necessárias são atendidas, como boa iluminação, e boa qualidade da imagem.
 ### Conclusão
   Video de sucesso:
+  
   [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgSucesso1.png)](https://drive.google.com/file/d/1FYnXcqsiNtxLn2VF7rBq8q-aVv-39xc5/view?usp=sharing)
   
   Video de falha:
+  
     [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1UtCBOSn-l9KdKGbSKAy1XtV_3RsjHSfv/view?usp=sharing)  
   
   Video Haar Cascade:
