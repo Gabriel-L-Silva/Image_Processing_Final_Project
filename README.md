@@ -36,7 +36,7 @@ Para atingir o objetivo iremos seguir os seguintes passos:
   
   Video de falha:
   
-    [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)  
+  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)
   
   Video Haar Cascade:
   
