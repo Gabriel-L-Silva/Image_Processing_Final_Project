@@ -15,13 +15,13 @@ A principal técnica de processamento de imagens utilizada será a morfologia. N
 
 Para atingir o objetivo iremos seguir os seguintes passos:
 
-  1 - Remover fundo da imagem e possíveis ruídos
-      
-      Para a remoção do fundo 
+  1. Remover fundo da imagem e possíveis ruídos
   
-  2 - Detectar a face da pessoa
   
-  3 - Detectar a posição do olho da pessoa
+  
+  2. Detectar a face da pessoa
+  
+  3. Detectar a posição do olho da pessoa
       
       A técnica aqui foi baseada no trabalho de "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009)", eles consideram que sempre que o olho estiver própriamente iluminado haverá um ponto de reflexão nos olhos, e é justamente esse ponto de reflexão que dever ser explorado para a detectção dos olhos.
     
