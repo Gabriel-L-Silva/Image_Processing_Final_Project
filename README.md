@@ -36,12 +36,12 @@ Para atingir o objetivo iremos seguir os seguintes passos:
   
   Video de falha:
   
-    [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1UtCBOSn-l9KdKGbSKAy1XtV_3RsjHSfv/view?usp=sharing)  
+    [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgFalha1.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)  
   
   Video Haar Cascade:
   
-  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgHaar1.png)](https://drive.google.com/file/d/1oxl4FKvf88SptaDo6YeJPe3Nq1iDkePI/view?usp=sharing)
+  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgHaar1.png)](https://drive.google.com/file/d/1oxl4FKvf88SptaDo6YeJPe3Nq1iDkePI/view?usp=sharing)  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgHaar2.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)
   
-  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgHaar2.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)
+
 
 
