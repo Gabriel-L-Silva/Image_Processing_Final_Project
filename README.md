@@ -26,10 +26,13 @@ Para atingir o objetivo iremos seguir os seguintes passos:
       A técnica aqui foi baseada no trabalho de "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009)", eles consideram que sempre que o olho estiver própriamente iluminado haverá um ponto de reflexão nos olhos, e é justamente esse ponto de reflexão que dever ser explorado para a detectção dos olhos.
     
   
-### Discussão
+
 
 ### Resultados
+  Os resultados obtidos podem ser acessados [aqui](https://drive.google.com/drive/folders/12ZARRIYUNgqI2m7p3n1iCw50Ml1KOO57?usp=sharing).
+### Discussão
 
+### Conclusão
   
 
 
