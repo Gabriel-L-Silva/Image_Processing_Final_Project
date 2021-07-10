@@ -15,24 +15,20 @@ A principal técnica de processamento de imagens utilizada será a morfologia. N
 
 Para atingir o objetivo iremos seguir os seguintes passos:
 
-  1. Remover fundo da imagem e possíveis ruídos
+  1. Remover fundo da imagem e possíveis ruídos. A técnica para acelerar esse processo foi pular alguns frames, e no final, a média de todos os frames processados é aplicada como uma máscara para todo o vídeo.
   
+  2. Detectar a pele da pessoa e usar como máscara para removê-la da imagem.
   
+  3. Detectar a posição do olho da pessoa. A técnica aqui foi baseada no trabalho de "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009)", eles consideram que sempre que o olho estiver própriamente iluminado haverá um ponto de reflexão nos olhos, e é justamente esse ponto de reflexão que dever ser explorado para a detecção dos olhos. 
   
-  2. Detectar a face da pessoa
-  
-  3. Detectar a posição do olho da pessoa
-      
-      A técnica aqui foi baseada no trabalho de "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009)", eles consideram que sempre que o olho estiver própriamente iluminado haverá um ponto de reflexão nos olhos, e é justamente esse ponto de reflexão que dever ser explorado para a detecção dos olhos.
-      
-    
-  
+  4. Realiza a detecção de olhos por meio da técnica Haar cascade. Para realizar a comparação com o nosso resultado.
 
-
+  Todo o projeto foi realizado em conjunto durante chamada de voz e vídeo via Discord.
+  
 ### Resultados
   Os resultados obtidos podem ser acessados [aqui](https://drive.google.com/drive/folders/12ZARRIYUNgqI2m7p3n1iCw50Ml1KOO57?usp=sharing).
 ### Discussão
-
+  Nossa técnica tem dificuldade quando o sujeito para analise está usando óculos, ou quando a qualidade da imagem não é boa, por exemplo vídeo borrado que colocamos nos resultados. Em casos de sucesso, nossa técnica não é perfeita, porém tem resultado relativamente consistente quando as condições necessárias são atendidas, como boa iluminação, e boa qualidade da imagem.
 ### Conclusão
   
 
