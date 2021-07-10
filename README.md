@@ -10,8 +10,8 @@ A entrada da aplicação será composta por um conjunto de dados de clipes de 15
 ![image](https://user-images.githubusercontent.com/29693842/120404422-53f10a00-c314-11eb-852e-04eab7238944.png)
 ![image](https://user-images.githubusercontent.com/29693842/120404436-5ce1db80-c314-11eb-9e6b-205332b798f9.png)
 
-A principal técnica de processamento de imagens utilizada será a morfologia. Nós utilizamos as técnicas do trabalho de onde tais ténicas são aplicadas para imagens.
-[ "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009). Eye Detection Using Morphological and Color Image Processing".](https://www.researchgate.net/publication/237415739_Eye_Detection_Using_Morphological_and_Color_Image_Processing) 
+A principal técnica de processamento de imagens utilizada será a morfologia. Nós utilizamos as técnicas do trabalho de [ "Rajpathak, Tanmay & Kumar, Ratnesh & Schwartz, Eric. (2009). Eye Detection Using Morphological and Color Image Processing".](https://www.researchgate.net/publication/237415739_Eye_Detection_Using_Morphological_and_Color_Image_Processing).
+
 
 Para atingir o objetivo iremos seguir os seguintes passos:
 
