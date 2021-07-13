@@ -40,10 +40,11 @@ Para atingir o objetivo iremos seguir os seguintes passos:
   
   [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgHaar1.png)](https://drive.google.com/file/d/1oxl4FKvf88SptaDo6YeJPe3Nq1iDkePI/view?usp=sharing)  [![Watch the video](https://github.com/Gls-Facom/Image_Processing_Final_Project/blob/main/videos/imgHaar2.png)](https://drive.google.com/file/d/1OZarG-EaNgdGItou_Z2lOfMR4TJpaoqW/view?usp=sharing)
 ### Discussão
-  Nossa técnica tem dificuldade quando o sujeito para analise está usando óculos, ou quando a qualidade da imagem não é boa, por exemplo vídeo borrado que colocamos nos resultados. Em casos de sucesso, nossa técnica não é perfeita, porém tem resultado relativamente consistente quando as condições necessárias são atendidas, como boa iluminação, e boa qualidade da imagem.
+  Nossa técnica tem dificuldade quando o sujeito está usando óculos, ou quando a qualidade da imagem não é boa, como por exemplo o vídeo borrado que colocamos nos resultados. Em casos de sucesso, nossa técnica não é perfeita, porém os resultados dependem que as condições necessárias sejam atendidas: como uma boa iluminação e boa qualidade da imagem.
+  
 ### Conclusão
 
   
-O video de sucesso utilizando a técnica de morfologia, apresentou menos inconsistencias na hora da identificação dos olhos, gerando menos quadrados fora do local. Enquanto a técnica de Haar além da identificação dos olhos, acaba identificando o nariz e a boca. 
+O video de sucesso utilizando a técnica de morfologia, apresentou menos inconsistências na hora da identificação dos olhos, gerando menos quadrados fora do local. Enquanto a técnica de Haar além da identificação dos olhos, acaba identificando o nariz e a boca. 
 
 
